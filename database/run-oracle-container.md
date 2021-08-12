@@ -19,9 +19,17 @@ $ docker container port myoracle
 5500/tcp -> :::55004
 ```
 
-# sqlplus 로 데이터베이스 접속
+# 데이터베이스 접속
 
-## 연결 정보를 커맨드에서 명시하는 방법
+## usql
+
+```bash
+$ usql 'oracle://sys:Oradoc_db1@0.0.0.0:55005/ORCLCDB.localdomain?DBA PRIVILEGE=sysdba'
+```
+
+## sqlplus
+
+### 연결 정보를 커맨드에서 명시하는 방법
 
 ```bash
 $ sqlplus sys/Oradoc_db1@0.0.0.0:55005/ORCLCDB.localdomain as sysdba
@@ -33,7 +41,7 @@ $ sqlplus sys/Oradoc_db1@0.0.0.0:55005/ORCLCDB.localdomain as sysdba
 $ sqlplus sys/Oradoc_db1@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=0.0.0.0)(PORT=55005))(CONNECT_DATA=(SID=ORCLCDB)))" as sysdba
 ```
 
-## 연결 정보를 tnsnames.ora 파일에 명시하는 방법
+### 연결 정보를 tnsnames.ora 파일에 명시하는 방법
 
 `tnsnames.ora` 파일의 경로는 임의적이지만 이 파일이 위치한 디렉터리의 경로를 `TNS_ADMIN` 환경변수에 지정해야 한다:
 
