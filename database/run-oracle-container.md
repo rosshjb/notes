@@ -24,6 +24,12 @@ $ docker container port myoracle
 ## 연결 정보를 커맨드에서 명시하는 방법
 
 ```bash
+$ sqlplus sys/Oradoc_db1@0.0.0.0:55005/ORCLCDB.localdomain as sysdba
+```
+
+또는
+
+```bash
 $ sqlplus sys/Oradoc_db1@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=0.0.0.0)(PORT=55005))(CONNECT_DATA=(SID=ORCLCDB)))" as sysdba
 ```
 
